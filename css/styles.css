@@ -1,0 +1,170 @@
+:root {
+    --bege-escuro: #c1b398;
+    --bege-claro: #f4f1ea;
+    --dourado-fosco: #a68c5b;
+    --texto: #4a453c;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto);
+    background-color: var(--bege-claro);
+}
+
+/* Configuração do Slider */
+.carousel-item {
+    height: 100vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay com Degradê (Preto embaixo para Transparente em cima) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradê: Começa preto 80% embaixo e fica transparente no topo */
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+}
+
+/* Alinhamento dos textos */
+.hero-content {
+    /* Ajuste o padding-bottom no HTML ou aqui para controlar a altura final */
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Ajuste da fonte cursiva/serifada dentro do h1 */
+.hero-content h1 span {
+    font-size: 4rem; /* Tamanho maior para impacto */
+    font-weight: 400;
+    line-height: 1.2;
+    /* Espaçamento entre letras para parecer mais "editorial" */
+    letter-spacing: -1px;
+}
+
+.hero-content p.lead {
+    font-size: 1.25rem;
+    max-width: 800px; /* Mantemos o texto de apoio centralizado e não tão largo para leitura */
+    margin: 0 auto;
+    letter-spacing: 1px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Ajuste para telas menores (Responsividade) */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Garante que o Navbar não cubra o texto se estiver muito baixo */
+.navbar {
+    background-color: rgba(193, 179, 152, 0.8) !important;
+    backdrop-filter: blur(5px); /* Efeito de vidro opcional */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color:#b9a88c; /* Mesma cor do topo da imagem */
+    padding: 15px 0;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-agendar {
+    border: 1px solid #fff;
+    padding: 8px 20px !important;
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/hero-casal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-image: url('../img/casal.jpg');
+}
+
+.hero h1 span {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    background: #fff;
+    color: var(--bege-escuro);
+}
+
+/* Seção Assessoria */
+.bg-nude {
+    background-color: #faf9f6;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--texto);
+}
+
+.service-icon img {
+    opacity: 0.7;
+}
+
+.img-fluid {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Estilo para os ícones ficarem finos e delicados */
+.service-icon i {
+    font-size: 2rem;
+    color: var(--texto); /* Ou a cor específica do seu logo */
+    font-weight: 100 !important; /* Força o traço mais fino disponível */
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* Ajuste das fontes para o modelo Fine Art */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: var(--texto);
+}
+
+h4.fw-bold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600 !important;
+    font-size: 1.4rem;
+}

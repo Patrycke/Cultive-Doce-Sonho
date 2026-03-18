@@ -1,0 +1,9 @@
+A Paleta de Cores para a cliente é a seguinte:
+
+#f2f2f2
+#f2e0c9
+#b9a88c 
+#595439
+#262314
+
+Se atentar ao uso dessas cores no site para manter a identidade visual.
