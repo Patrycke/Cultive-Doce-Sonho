@@ -49,7 +49,7 @@
         </div>
 </header>
 
-    <section id="servicos" class="py-5 bg-nude">
+    <section id="servicos" class="py-5 bg-nude section-full-view">
     <div class="container text-center py-5">
         <h2 class="section-title mb-5">Nossa Assessoria</h2>
         <div class="row g-5">
@@ -91,7 +91,7 @@
     </div>
 </section>
 
-<section id="filosofia" class="py-5 bg-white">
+<section id="filosofia" class="py-5 bg-white section-full-view">
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-md-5">
@@ -110,29 +110,29 @@
     </div>
 </section>
 
-<section id="contato" class="py-5 bg-nude">
+<section id="contato" class="py-5 bg-nude section-full-view">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="contact-card p-4 p-md-5 shadow-sm bg-white rounded">
                     <h2 class="section-title text-center mb-5">Inicie sua Jornada</h2>
-                    <form action="#" method="POST">
+                    <form id="whatsappForm">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label small text-uppercase">Nome da Noiva / Noivo</label>
-                                <input type="text" class="form-control custom-input" placeholder="Seu nome completo" required>
+                                <input type="text" id="nome" class="form-control custom-input" placeholder="Seu nome completo" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small text-uppercase">WhatsApp</label>
-                                <input type="tel" class="form-control custom-input" placeholder="(00) 00000-0000" required>
+                                <input type="tel" id="telefone" class="form-control custom-input" placeholder="(00) 00000-0000" required>
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label small text-uppercase">Data Prevista do Casamento</label>
-                                <input type="date" class="form-control custom-input">
+                                <input type="date" id="data" class="form-control custom-input">
                             </div>
                             <div class="col-md-12">
                                 <label class="form-label small text-uppercase">Conte-nos seu sonho</label>
-                                <textarea class="form-control custom-input" rows="4" placeholder="Como podemos ajudar a cultivar seu grande dia?"></textarea>
+                                <textarea id="mensagem" class="form-control custom-input" rows="4" placeholder="Como podemos ajudar a cultivar seu grande dia?"></textarea>
                             </div>
                             <div class="col-12 text-center mt-4">
                                 <button type="submit" class="btn-hero w-100" style="color: var(--texto); border-color: var(--bege-escuro);">Enviar Solicitação</button>
@@ -159,13 +159,13 @@
         </div>
 
         <div class="social-icons mb-4">
-            <a href="https://instagram.com/SEU_USER" target="_blank" class="mx-2 social-link">
+            <a href="https://instagram.com/cultivedocesonho" target="_blank" class="mx-2 social-link">
                 <i class="bi bi-instagram"></i>
             </a>
             <a href="https://wa.me/5548996957512" target="_blank" class="mx-2 social-link">
                 <i class="bi bi-whatsapp"></i>
             </a>
-            <a href="mailto:contato@cultivedocesonho.com.br" class="mx-2 social-link">
+            <a href="mailto:kerolayneveigaa@gmail.com" class="mx-2 social-link">
                 <i class="bi bi-envelope"></i>
             </a>
         </div>
@@ -191,6 +191,43 @@
                 bsCollapse.hide();
             }
         });
+    });
+    </script>
+
+    <script>
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+
+        // 1. Captura os valores
+        const nome = document.getElementById('nome').value;
+        const telefoneRaw = document.getElementById('telefone').value;
+        const data = document.getElementById('data').value;
+        const sonho = document.getElementById('mensagem').value;
+
+        // 2. Validação: Remove tudo que não for número
+        const telefoneApenasNumeros = telefoneRaw.replace(/\D/g, '');
+
+        // 3. Verifica se tem entre 10 e 11 dígitos (padrão Brasil com DDD)
+        if (telefoneApenasNumeros.length < 11 || telefoneApenasNumeros.length > 11) {
+            alert("Por favor, insira um WhatsApp válido com DDD (ex: 48999999999).");
+            return; // Interrompe o envio
+        }
+
+        // 4. Formatação da data (DD/MM/AAAA)
+        const dataFormatada = data ? data.split('-').reverse().join('/') : "A definir";
+
+        // 5. Monta a mensagem estruturada
+        const texto = `Olá! Gostaria de solicitar um orçamento para meu casamento:%0A%0A` +
+                      `*Nome:* ${nome}%0A` +
+                      `*WhatsApp:* ${telefoneRaw}%0A` +
+                      `*Data Prevista:* ${dataFormatada}%0A` +
+                      `*Sonho:* ${sonho}`;
+
+        const numeroWhats = "5548996957512"; 
+
+        // 6. Redireciona
+        const url = `https://wa.me/${numeroWhats}?text=${texto}`;
+        window.open(url, '_blank');
     });
     </script>
 
