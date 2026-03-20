@@ -153,11 +153,33 @@ h4.fw-bold {
     margin-bottom: 15px;
 }
 
+/* Localize e altere esta regra no seu arquivo styles.css */
 .img-fluid {
-    height: 280px;
+    height: auto; /* Altere de 280px para auto para permitir que cresça */
     width: 100%;
     object-fit: cover;
     border-radius: 4px;
+}
+
+/* Adicione esta nova regra para manter as fotos dos SERVIÇOS com o tamanho antigo */
+#servicos .img-fluid {
+    height: 380px; /* Alterado de 280px para 380px para ficarem maiores */
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Ajuste específico para a imagem da Filosofia */
+#filosofia .img-fluid {
+    max-height: 600px; /* Define um limite elegante para não ocupar a tela toda */
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 20px 20px 0px var(--bege-escuro); /* Substitui a borda decorativa por algo mais moderno */
+}
+
+/* Ajuste da borda decorativa (opcional, caso queira manter o elemento HTML) */
+.decorative-border {
+    display: none; /* Sugiro ocultar se usar o box-shadow acima, fica mais limpo */
 }
 
 /* 6. RESPONSIVIDADE (MOBILE) */
@@ -265,4 +287,24 @@ footer p span {
     font-size: 0.75rem;
     letter-spacing: 1px;
     opacity: 0.7;
+}
+
+/* Classe para fazer a seção ocupar a tela inteira no Desktop */
+@media (min-width: 992px) {
+    .section-full-view {
+        min-height: 80vh; /* Reduzi de 100vh para 80vh para a seção não ser tão alta */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        
+        /* Ajuste do recuo do topo */
+        scroll-margin-top: 70px; 
+        padding-top: 60px !important; /* Reduzi de 100px para 60px */
+        padding-bottom: 60px !important;
+    }
+}
+
+/* Garante que o scroll suave funcione corretamente */
+html {
+    scroll-behavior: smooth;
 }
