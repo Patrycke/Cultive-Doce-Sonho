@@ -13,65 +13,43 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <div class="container border-bottom-custom">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.jpg" alt="Cultive" height="60" class="rounded-circle">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Nossos Serviços</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Portfólio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Nossa Filosofia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
-                    <li class="nav-item"><a class="nav-link btn-agendar ms-lg-3" href="#">Agendar Consulta</a></li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container border-bottom-custom">
+        <a class="navbar-brand" href="#inicio">
+            <img src="img/logo.jpg" alt="Cultive" height="60" class="rounded-circle">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#servicos">Nossos Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="#filosofia">Nossa Filosofia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfólio</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <header id="inicio" class="carousel slide carousel-fade" data-bs-ride="carousel">
+<header id="inicio" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
-        
         <div class="carousel-item active" style="background-image: url('img/casal.jpg');">
             <div class="hero-overlay">
                 <div class="container h-100 d-flex align-items-end pb-5">
                     <div class="hero-content text-white text-center w-100 pb-5">
                         <h1 class="display-3">Seu Doce Sonho de Casamento,<br><span>Cultivado com Carinho</span></h1>
                         <p class="lead my-4">Organização completa, assessoria e cerimonial personalizado para transformar o seu sim em uma memória inesquecível!</p>
-                        <a href="#" class="btn-hero mt-3">Comece sua Jornada Conosco</a>
+                        <a href="https://wa.me/5548996957512?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20assessoria." target="_blank" class="btn-hero mt-3">Comece sua Jornada Conosco</a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="carousel-item" style="background-image: url('img/capa.jpg');">
-            <div class="hero-overlay">
-                <div class="container h-100 d-flex align-items-end pb-5">
-                    <div class="hero-content text-white text-center w-100 pb-5">
-                        <h1 class="display-3">Seu Doce Sonho de Casamento,<br><span>Cultivado com Carinho</span></h1>
-                        <p class="lead my-4">Organização completa, assessoria e cerimonial personalizado para transformar o seu sim em uma memória inesquecível!</p>
-                        <a href="#" class="btn-hero mt-3">Comece sua Jornada Conosco</a>
-                    </div>
-                </div>
-            </div>
         </div>
+</header>
 
-    </div>
-    
-    <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-    </header>
-
-    <section class="py-5 bg-nude">
+    <section id="servicos" class="py-5 bg-nude">
     <div class="container text-center py-5">
         <h2 class="section-title mb-5">Nossa Assessoria</h2>
         <div class="row g-5">
@@ -113,6 +91,108 @@
     </div>
 </section>
 
+<section id="filosofia" class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <div class="img-wrapper position-relative">
+                    <img src="img/cerimonialista.jpg" class="img-fluid rounded shadow-lg" alt="Nossa Filosofia">
+                    <div class="decorative-border"></div>
+                </div>
+            </div>
+            <div class="col-md-7 ps-md-5 mt-4 mt-md-0">
+                <h2 class="section-title text-start mb-4">Nossa Filosofia</h2>
+                <p class="lead italic text-muted mb-4">"Cultivando sonhos com princípios e dedicação."</p>
+                <p>Acreditamos que o casamento é um dos passos mais sagrados na jornada de um casal. Nossa missão é oferecer uma assessoria que vá além do planejamento técnico, focando na essência da união.</p>
+                <p>Com vasta experiência em <strong>ambientes Cristãos</strong>, entendemos a importância de cada rito e a reverência necessária para tornar o seu 'sim' um testemunho de amor e fé. Estamos aqui para garantir que cada detalhe reflita a identidade de vocês, permitindo que vivam esse sonho com paz e alegria.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="py-5 bg-nude">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-card p-4 p-md-5 shadow-sm bg-white rounded">
+                    <h2 class="section-title text-center mb-5">Inicie sua Jornada</h2>
+                    <form action="#" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small text-uppercase">Nome da Noiva / Noivo</label>
+                                <input type="text" class="form-control custom-input" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-uppercase">WhatsApp</label>
+                                <input type="tel" class="form-control custom-input" placeholder="(00) 00000-0000" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label small text-uppercase">Data Prevista do Casamento</label>
+                                <input type="date" class="form-control custom-input">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label small text-uppercase">Conte-nos seu sonho</label>
+                                <textarea class="form-control custom-input" rows="4" placeholder="Como podemos ajudar a cultivar seu grande dia?"></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="btn-hero w-100" style="color: var(--texto); border-color: var(--bege-escuro);">Enviar Solicitação</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-5 bg-white border-top">
+    <div class="container text-center">
+        <div class="mb-4">
+            <img src="img/logo.jpg" alt="Cultive" height="80" class="rounded-circle shadow-sm">
+        </div>
+
+        <div class="footer-links mb-4">
+            <a href="#inicio" class="mx-3 text-uppercase small text-decoration-none footer-link">Início</a>
+            <a href="#servicos" class="mx-3 text-uppercase small text-decoration-none footer-link">Serviços</a>
+            <a href="#contato" class="mx-3 text-uppercase small text-decoration-none footer-link">Contato</a>
+            <a href="portfolio.html" class="mx-3 text-uppercase small text-decoration-none footer-link">Portfólio</a>
+        </div>
+
+        <div class="social-icons mb-4">
+            <a href="https://instagram.com/SEU_USER" target="_blank" class="mx-2 social-link">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://wa.me/5548996957512" target="_blank" class="mx-2 social-link">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="mailto:contato@cultivedocesonho.com.br" class="mx-2 social-link">
+                <i class="bi bi-envelope"></i>
+            </a>
+        </div>
+
+        <hr class="w-50 mx-auto mb-4" style="opacity: 0.1;">
+
+        <p class="text-muted small mb-0">
+            &copy; 2026 Cultive | Doce Sonho Assessoria e Cerimonial. <br>
+            <span class="mt-2 d-inline-block">Desenvolvido por Patrycke.</span>
+        </p>
+    </div>
+</footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // Fecha o menu collapse do bootstrap ao clicar em um link (mobile)
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarCollapse = document.getElementById('navbarNav');
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+            if (navbarCollapse.classList.contains('show')) {
+                bsCollapse.hide();
+            }
+        });
+    });
+    </script>
+
 </body>
 </html>
