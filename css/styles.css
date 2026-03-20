@@ -1,89 +1,38 @@
+/* 1. VARIÁVEIS E FONTES */
 :root {
     --bege-escuro: #c1b398;
     --bege-claro: #f4f1ea;
     --dourado-fosco: #a68c5b;
     --texto: #4a453c;
+    --overlay-preto: rgba(0, 0, 0, 0.7);
 }
 
-body {
+/* 2. RESET E ESTRUTURA GLOBAL */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
     color: var(--texto);
     background-color: var(--bege-claro);
-}
-
-/* Configuração do Slider */
-.carousel-item {
-    height: 100vh;
-    min-height: 600px;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Overlay com Degradê (Preto embaixo para Transparente em cima) */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Degradê: Começa preto 80% embaixo e fica transparente no topo */
-    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
-}
-
-/* Alinhamento dos textos */
-.hero-content {
-    /* Ajuste o padding-bottom no HTML ou aqui para controlar a altura final */
-    max-width: 1200px; 
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-/* Ajuste da fonte cursiva/serifada dentro do h1 */
-.hero-content h1 span {
-    font-size: 4rem; /* Tamanho maior para impacto */
-    font-weight: 400;
-    line-height: 1.2;
-    /* Espaçamento entre letras para parecer mais "editorial" */
-    letter-spacing: -1px;
-}
-
-.hero-content p.lead {
-    font-size: 1.25rem;
-    max-width: 800px; /* Mantemos o texto de apoio centralizado e não tão largo para leitura */
-    margin: 0 auto;
-    letter-spacing: 1px;
-    font-weight: 300;
-    opacity: 0.9;
-}
-
-/* Ajuste para telas menores (Responsividade) */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-}
-
-/* Garante que o Navbar não cubra o texto se estiver muito baixo */
-.navbar {
-    background-color: rgba(193, 179, 152, 0.8) !important;
-    backdrop-filter: blur(5px); /* Efeito de vidro opcional */
 }
 
 h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
 }
 
-/* Navbar */
+/* 3. NAVBAR (Ajustada para o padrão do logo) */
 .navbar {
-    background-color:#b9a88c; /* Mesma cor do topo da imagem */
+    background-color: rgba(185, 168, 140, 0.9) !important; /* Cor #b9a88c com leve transparência */
     padding: 15px 0;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
 }
 
 .nav-link {
     color: #fff !important;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -92,79 +41,228 @@ h1, h2, h3, h4 {
     border: 1px solid #fff;
     padding: 8px 20px !important;
     border-radius: 4px;
+    transition: 0.3s;
 }
 
-/* Hero Section */
-.hero {
+.btn-agendar:hover {
+    background-color: #fff;
+    color: var(--bege-escuro) !important;
+}
+
+/* 4. HERO SLIDER (Correção para aparecer o carrossel) */
+#inicio.carousel {
+    width: 100%;
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/hero-casal.jpg');
-    background-size: cover;
-    background-position: center;
-    background-image: url('../img/casal.jpg');
+    background-color: #000; /* Fundo preto enquanto carrega */
 }
 
-.hero h1 span {
+.carousel-inner, .carousel-item {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Estilo para quando a imagem é Background do Slide */
+.carousel-item {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay com Degradê Invertido (Texto na parte escura embaixo) */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    align-items: flex-end; /* Alinha o texto na parte de baixo */
+    padding-bottom: 80px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero-content h1 span {
     font-style: italic;
     font-weight: 400;
 }
 
+.hero-content p.lead {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.9);
+    max-width: 800px;
+    margin: 0 auto 30px;
+    font-weight: 300;
+}
+
 .btn-hero {
     display: inline-block;
-    padding: 12px 35px;
+    padding: 12px 40px;
     border: 1px solid #fff;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 2px;
-    background: rgba(0,0,0,0.1);
-    transition: 0.3s;
+    background: rgba(255,255,255,0.1);
+    transition: 0.4s;
 }
 
 .btn-hero:hover {
     background: #fff;
-    color: var(--bege-escuro);
+    color: #000;
 }
 
-/* Seção Assessoria */
+/* 5. SEÇÃO DE SERVIÇOS */
 .bg-nude {
     background-color: #faf9f6;
 }
 
 .section-title {
     font-size: 2.5rem;
-    color: var(--texto);
-}
-
-.service-icon img {
-    opacity: 0.7;
-}
-
-.img-fluid {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-}
-
-/* Estilo para os ícones ficarem finos e delicados */
-.service-icon i {
-    font-size: 2rem;
-    color: var(--texto); /* Ou a cor específica do seu logo */
-    font-weight: 100 !important; /* Força o traço mais fino disponível */
-    display: block;
-    margin-bottom: 20px;
-    opacity: 0.8;
-}
-
-/* Ajuste das fontes para o modelo Fine Art */
-.section-title {
-    font-family: 'Playfair Display', serif;
     font-weight: 400;
     color: var(--texto);
+    margin-bottom: 50px;
+}
+
+.service-icon i {
+    font-size: 1.5rem; /* Menor como no modelo Fine Art */
+    color: var(--dourado-fosco);
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 100 !important;
 }
 
 h4.fw-bold {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.img-fluid {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* 6. RESPONSIVIDADE (MOBILE) */
+@media (max-width: 768px) {
+    .hero-overlay {
+        padding-bottom: 40px; /* Menos espaço no mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+    }
+
+    .hero-content p.lead {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px;
+    }
+
+    .navbar-brand img {
+        height: 45px !important;
+    }
+}
+
+[data-fancybox] {
+    cursor: zoom-in;
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+/* O efeito de hover que já tínhamos, agora no link pai */
+[data-fancybox]:hover img {
+    transform: scale(1.05);
+    transition: 0.5s transform ease;
+}
+
+/* Estilos para Filosofia */
+.italic {
+    font-style: italic;
     font-family: 'Playfair Display', serif;
-    font-weight: 600 !important;
-    font-size: 1.4rem;
+}
+
+.decorative-border {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--bege-escuro);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+/* Estilos para o Formulário de Contato */
+.custom-input {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 10px 5px;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+.custom-input:focus {
+    box-shadow: none;
+    border-color: var(--dourado-fosco);
+    background-color: #fcfcfc;
+}
+
+.contact-card {
+    border-top: 4px solid var(--bege-escuro);
+}
+
+/* Smooth Scroll para navegação suave ao clicar no menu */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos do Rodapé */
+.footer-link {
+    color: var(--texto);
+    letter-spacing: 2px;
+    font-weight: 300;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--dourado-fosco);
+}
+
+.social-link {
+    font-size: 1.5rem;
+    color: var(--bege-escuro);
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.social-link:hover {
+    color: var(--dourado-fosco);
+    transform: translateY(-3px);
+}
+
+/* Ajuste para o texto de desenvolvimento */
+footer p span {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    opacity: 0.7;
 }
