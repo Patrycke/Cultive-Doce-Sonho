@@ -2,13 +2,19 @@
 :root {
     --bege-escuro: #c1b398;
     --bege-claro: #f4f1ea;
+    --bege-navbar: rgba(185, 168, 140, 0.9);
     --dourado-fosco: #a68c5b;
     --texto: #4a453c;
     --overlay-preto: rgba(0, 0, 0, 0.7);
+    --transition: 0.3s ease;
 }
 
 /* 2. RESET E ESTRUTURA GLOBAL */
-html, body {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -18,16 +24,20 @@ html, body {
     background-color: var(--bege-claro);
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .italic {
     font-family: 'Playfair Display', serif;
 }
 
-/* 3. NAVBAR (Ajustada para o padrão do logo) */
+section {
+    scroll-margin-top: 80px; /* Evita que a navbar cubra o título da seção */
+}
+
+/* 3. NAVBAR */
 .navbar {
-    background-color: rgba(185, 168, 140, 0.9) !important; /* Cor #b9a88c com leve transparência */
+    background-color: var(--bege-navbar) !important;
     padding: 15px 0;
     backdrop-filter: blur(5px);
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .nav-link {
@@ -37,23 +47,16 @@ h1, h2, h3, h4 {
     letter-spacing: 1px;
 }
 
-.btn-agendar {
-    border: 1px solid #fff;
-    padding: 8px 20px !important;
-    border-radius: 4px;
-    transition: 0.3s;
+.border-bottom-custom {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
 }
 
-.btn-agendar:hover {
-    background-color: #fff;
-    color: var(--bege-escuro) !important;
-}
-
-/* 4. HERO SLIDER (Correção para aparecer o carrossel) */
+/* 4. HERO SLIDER (Carrossel de Início) */
 #inicio.carousel {
     width: 100%;
     height: 100vh;
-    background-color: #000; /* Fundo preto enquanto carrega */
+    background-color: #000;
 }
 
 .carousel-inner, .carousel-item {
@@ -61,14 +64,12 @@ h1, h2, h3, h4 {
     width: 100%;
 }
 
-/* Estilo para quando a imagem é Background do Slide */
 .carousel-item {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* Overlay com Degradê Invertido (Texto na parte escura embaixo) */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -77,7 +78,7 @@ h1, h2, h3, h4 {
     height: 100%;
     background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
     display: flex;
-    align-items: flex-end; /* Alinha o texto na parte de baixo */
+    align-items: flex-end;
     padding-bottom: 80px;
 }
 
@@ -102,14 +103,6 @@ h1, h2, h3, h4 {
     font-weight: 400;
 }
 
-.hero-content p.lead {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: rgba(255,255,255,0.9);
-    max-width: 800px;
-    margin: 0 auto 30px;
-    font-weight: 300;
-}
-
 .btn-hero {
     display: inline-block;
     padding: 12px 40px;
@@ -128,10 +121,8 @@ h1, h2, h3, h4 {
     color: #000;
 }
 
-/* 5. SEÇÃO DE SERVIÇOS */
-.bg-nude {
-    background-color: #faf9f6;
-}
+/* 5. SEÇÕES E COMPONENTES */
+.bg-nude { background-color: #faf9f6; }
 
 .section-title {
     font-size: 2.5rem;
@@ -140,107 +131,41 @@ h1, h2, h3, h4 {
     margin-bottom: 50px;
 }
 
+/* Ícones dos Serviços */
 .service-icon i {
-    font-size: 1.5rem; /* Menor como no modelo Fine Art */
+    font-size: 1.5rem;
     color: var(--dourado-fosco);
     display: block;
     margin-bottom: 15px;
-    font-weight: 100 !important;
 }
 
-h4.fw-bold {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-}
-
-/* Localize e altere esta regra no seu arquivo styles.css */
+/* Imagens Gerais */
 .img-fluid {
-    height: auto; /* Altere de 280px para auto para permitir que cresça */
+    height: auto;
     width: 100%;
     object-fit: cover;
     border-radius: 4px;
 }
 
-/* Adicione esta nova regra para manter as fotos dos SERVIÇOS com o tamanho antigo */
+/* Imagens específicas de Serviços */
 #servicos .img-fluid {
-    height: 380px; /* Alterado de 280px para 380px para ficarem maiores */
-    width: 100%;
-    object-fit: cover;
-    border-radius: 4px;
+    height: 380px;
 }
 
-/* Ajuste específico para a imagem da Filosofia */
+/* Imagem da Filosofia com Efeito Moderno */
 #filosofia .img-fluid {
-    max-height: 600px; /* Define um limite elegante para não ocupar a tela toda */
-    width: 100%;
-    object-fit: cover;
-    box-shadow: 20px 20px 0px var(--bege-escuro); /* Substitui a borda decorativa por algo mais moderno */
+    max-height: 600px;
+    box-shadow: 20px 20px 0px var(--bege-escuro);
 }
 
-/* Ajuste da borda decorativa (opcional, caso queira manter o elemento HTML) */
-.decorative-border {
-    display: none; /* Sugiro ocultar se usar o box-shadow acima, fica mais limpo */
-}
-
-/* 6. RESPONSIVIDADE (MOBILE) */
-@media (max-width: 768px) {
-    .hero-overlay {
-        padding-bottom: 40px; /* Menos espaço no mobile */
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem !important;
-        line-height: 1.2;
-    }
-
-    .hero-content p.lead {
-        font-size: 0.9rem !important;
-        margin-bottom: 20px;
-    }
-
-    .navbar-brand img {
-        height: 45px !important;
-    }
-}
-
-[data-fancybox] {
-    cursor: zoom-in;
-    display: block;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-/* O efeito de hover que já tínhamos, agora no link pai */
-[data-fancybox]:hover img {
-    transform: scale(1.05);
-    transition: 0.5s transform ease;
-}
-
-/* Estilos para Filosofia */
-.italic {
-    font-style: italic;
-    font-family: 'Playfair Display', serif;
-}
-
-.decorative-border {
-    position: absolute;
-    top: 20px;
-    left: -20px;
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--bege-escuro);
-    z-index: -1;
-    border-radius: 4px;
-}
-
-/* Estilos para o Formulário de Contato */
+/* Estilos do Formulário */
 .custom-input {
     border: none;
     border-bottom: 1px solid #e0e0e0;
     border-radius: 0;
     padding: 10px 5px;
     background-color: transparent;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .custom-input:focus {
@@ -253,27 +178,33 @@ h4.fw-bold {
     border-top: 4px solid var(--bege-escuro);
 }
 
-/* Smooth Scroll para navegação suave ao clicar no menu */
-html {
-    scroll-behavior: smooth;
+/* Portfólio / Fancybox */
+[data-fancybox] {
+    cursor: zoom-in;
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
 }
 
-/* Estilos do Rodapé */
+[data-fancybox]:hover img {
+    transform: scale(1.05);
+    transition: 0.5s transform ease;
+}
+
+/* 6. FOOTER */
 .footer-link {
     color: var(--texto);
     letter-spacing: 2px;
     font-weight: 300;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
-.footer-link:hover {
-    color: var(--dourado-fosco);
-}
+.footer-link:hover { color: var(--dourado-fosco); }
 
 .social-link {
     font-size: 1.5rem;
     color: var(--bege-escuro);
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: all var(--transition);
     display: inline-block;
 }
 
@@ -282,68 +213,35 @@ html {
     transform: translateY(-3px);
 }
 
-/* Ajuste para o texto de desenvolvimento */
-footer p span {
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    opacity: 0.7;
+/* Estado inicial: invisível e deslocado para baixo */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
-/* Classe para fazer a seção ocupar a tela inteira no Desktop */
+/* Estado final: visível e na posição original */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 7. RESPONSIVIDADE E ESTADOS */
+@media (max-width: 768px) {
+    .hero-overlay { padding-bottom: 40px; }
+    .hero-content h1 { font-size: 1.8rem !important; }
+    .hero-content p.lead { font-size: 0.9rem !important; }
+    .navbar-brand img { height: 45px !important; }
+    #servicos .img-fluid { height: 280px; } /* Ajuste para não ficar longo demais no celular */
+}
+
 @media (min-width: 992px) {
     .section-full-view {
-        min-height: 80vh; /* Reduzi de 100vh para 80vh para a seção não ser tão alta */
+        min-height: 80vh;
         display: flex;
         flex-direction: column;
-        justify-content: center; 
-        
-        /* Ajuste do recuo do topo */
-        scroll-margin-top: 70px; 
-        padding-top: 60px !important; /* Reduzi de 100px para 60px */
+        justify-content: center;
+        padding-top: 60px !important;
         padding-bottom: 60px !important;
     }
 }
-
-/* Garante que o scroll suave funcione corretamente */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Estilo para Depoimentos */
-.testimonial-box {
-    padding: 20px;
-    border-top: 1px solid rgba(193, 179, 152, 0.3); /* Cor --bege-escuro com transparência */
-    border-bottom: 1px solid rgba(193, 179, 152, 0.3);
-    margin-bottom: 40px;
-}
-
-.testimonial-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-style: italic;
-    color: var(--texto);
-    line-height: 1.6;
-}
-
-.bi-quote {
-    color: var(--dourado-fosco);
-    font-size: 2rem;
-    opacity: 0.5;
-}
-
-.blockquote-footer cite {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--bege-escuro);
-}
-
-/* Força o fundo borrado no container do Fancybox */
-.fancybox__backdrop {
-    background: rgba(25, 23, 20, 0.6) !important; /* Um pouco mais escuro para o blur aparecer */
-    backdrop-filter: blur(4px);
-}
-
-/* Garante que o ícone de voltar apareça corretamente se você usar Bootstrap Icons */
-.bi-arrow-left::before { content: "\f12f"; }
