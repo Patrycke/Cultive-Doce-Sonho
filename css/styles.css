@@ -339,4 +339,11 @@ html {
     color: var(--bege-escuro);
 }
 
+/* Força o fundo borrado no container do Fancybox */
+.fancybox__backdrop {
+    background: rgba(25, 23, 20, 0.6) !important; /* Um pouco mais escuro para o blur aparecer */
+    backdrop-filter: blur(4px);
+}
 
+/* Garante que o ícone de voltar apareça corretamente se você usar Bootstrap Icons */
+.bi-arrow-left::before { content: "\f12f"; }
