@@ -1,0 +1,247 @@
+/* 1. VARIÁVEIS E FONTES */
+:root {
+    --bege-escuro: #c1b398;
+    --bege-claro: #f4f1ea;
+    --bege-navbar: rgba(185, 168, 140, 0.9);
+    --dourado-fosco: #a68c5b;
+    --texto: #4a453c;
+    --overlay-preto: rgba(0, 0, 0, 0.7);
+    --transition: 0.3s ease;
+}
+
+/* 2. RESET E ESTRUTURA GLOBAL */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto);
+    background-color: var(--bege-claro);
+}
+
+h1, h2, h3, h4, .italic {
+    font-family: 'Playfair Display', serif;
+}
+
+section {
+    scroll-margin-top: 80px; /* Evita que a navbar cubra o título da seção */
+}
+
+/* 3. NAVBAR */
+.navbar {
+    background-color: var(--bege-navbar) !important;
+    padding: 15px 0;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.border-bottom-custom {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+/* 4. HERO SLIDER (Carrossel de Início) */
+#inicio.carousel {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+}
+
+.carousel-inner, .carousel-item {
+    height: 100vh;
+    width: 100%;
+}
+
+.carousel-item {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: #fff;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero-content h1 span {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    background: rgba(255,255,255,0.1);
+    transition: 0.4s;
+}
+
+.btn-hero:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* 5. SEÇÕES E COMPONENTES */
+.bg-nude { background-color: #faf9f6; }
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--texto);
+    margin-bottom: 50px;
+}
+
+/* Ícones dos Serviços */
+.service-icon i {
+    font-size: 1.5rem;
+    color: var(--dourado-fosco);
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Imagens Gerais */
+.img-fluid {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Imagens específicas de Serviços */
+#servicos .img-fluid {
+    height: 380px;
+}
+
+/* Imagem da Filosofia com Efeito Moderno */
+#filosofia .img-fluid {
+    max-height: 600px;
+    box-shadow: 20px 20px 0px var(--bege-escuro);
+}
+
+/* Estilos do Formulário */
+.custom-input {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 10px 5px;
+    background-color: transparent;
+    transition: var(--transition);
+}
+
+.custom-input:focus {
+    box-shadow: none;
+    border-color: var(--dourado-fosco);
+    background-color: #fcfcfc;
+}
+
+.contact-card {
+    border-top: 4px solid var(--bege-escuro);
+}
+
+/* Portfólio / Fancybox */
+[data-fancybox] {
+    cursor: zoom-in;
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+[data-fancybox]:hover img {
+    transform: scale(1.05);
+    transition: 0.5s transform ease;
+}
+
+/* 6. FOOTER */
+.footer-link {
+    color: var(--texto);
+    letter-spacing: 2px;
+    font-weight: 300;
+    transition: var(--transition);
+}
+
+.footer-link:hover { color: var(--dourado-fosco); }
+
+.social-link {
+    font-size: 1.5rem;
+    color: var(--bege-escuro);
+    transition: all var(--transition);
+    display: inline-block;
+}
+
+.social-link:hover {
+    color: var(--dourado-fosco);
+    transform: translateY(-3px);
+}
+
+/* Estado inicial: invisível e deslocado para baixo */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estado final: visível e na posição original */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 7. RESPONSIVIDADE E ESTADOS */
+@media (max-width: 768px) {
+    .hero-overlay { padding-bottom: 40px; }
+    .hero-content h1 { font-size: 1.8rem !important; }
+    .hero-content p.lead { font-size: 0.9rem !important; }
+    .navbar-brand img { height: 45px !important; }
+    #servicos .img-fluid { height: 280px; } /* Ajuste para não ficar longo demais no celular */
+}
+
+@media (min-width: 992px) {
+    .section-full-view {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+}
